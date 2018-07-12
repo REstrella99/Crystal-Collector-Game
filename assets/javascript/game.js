@@ -64,13 +64,13 @@ function clicks() {
 
       $('.gems img').off('click');
       losses++;
-      alert("you lose!");
+      alert("YOU LOSE!");
       game();
     } else if (current === random_num) {
 
       $('.gems img').off('click');
       wins++;
-      alert("you win!");
+      alert("YOU WIN!");
       game();
     }
 
