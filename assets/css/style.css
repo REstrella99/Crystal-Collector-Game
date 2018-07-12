@@ -1,0 +1,58 @@
+body{ background-image: url("https://steamuserimages-a.akamaihd.net/ugc/858358931590718082/3D5C9B73608C2D22E93D7E2B90911B78E0A6750F/") }
+
+.instructions{
+color:white;
+font-size: 17px;
+font-weight: 1200;
+font-family: 'Chonburi', cursive;
+}
+p {
+  padding: 0;
+  margin: 10px 0;
+  font-weight: 300;
+}
+
+dl {
+  width: 40%;
+  margin: 0 auto;
+  
+}
+
+dt {
+  display: block;
+  float: left;
+  text-align: left;
+  color:white;
+  font-size:20px;
+  font-weight:bold;
+
+}
+
+.display1{
+color: white;
+font-size: 75px;
+font-family: 'Chela One', cursive;
+letter-spacing: 7px;
+}
+
+dt:after {
+  content: ':';
+  
+}
+
+dd {
+  display: block;
+  text-align: right;
+  color: white;
+  font-size: 18px;
+  font-weight:bold;
+}
+
+.game {
+  max-width: 600px;
+}
+
+img {
+  margin: 0 auto;
+  width: 137.5px;
+  height: 137.5px;
