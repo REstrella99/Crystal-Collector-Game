@@ -2,9 +2,10 @@ body{ background-image: url("https://steamuserimages-a.akamaihd.net/ugc/85835893
 
 .instructions{
 color:white;
-font-size: 17px;
+font-size: 19px;
 font-weight: 1200;
-font-family: 'Chonburi', cursive;
+font-family: 'Audiowide', cursive;
+background-color:#6762e8;
 }
 p {
   padding: 0;
@@ -15,6 +16,9 @@ p {
 dl {
   width: 40%;
   margin: 0 auto;
+  border: ridge white;
+  padding: 9px;
+
   
 }
 
