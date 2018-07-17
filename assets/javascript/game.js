@@ -1,97 +1,91 @@
+var randomize,
+    currentNum,
+    wins = 0,
+    losses = 0,
+    gem = [];
 
 
-var randomNum,
-  currentNumber,
-  wins = 0,
-  losses = 0,
-  gemstone = [];
+function randomNum(gemgen, max, min) {
+
+    if (gemgen === true) {
+
+        while (gem.length < 4) {
+
+            let randomnumber = Math.floor(Math.random() * (max - min + 1) + min);
+
+            if (gem.indexOf(randomnumber) > -1) continue;
 
 
-function randomize(gemspawn, max, min) {
+            gem[gem.length] = randomnumber;
+        }
+    } else {
 
-
-  if (gemspawn === true) {
-
-    while (gemstone.length < 4) {
-      let randomnumber = Math.floor(Math.random() * (max - min + 1) + min);
-
-
-      if (gemstone.indexOf(randomnumber) > -1) continue;
-
-
-      gemstone[gemstone.length] = randomnumber;
+        randomize = Math.floor(Math.random() * (max - min + 1) + min);
     }
-  } else {
-
-    randomNum = Math.floor(Math.random() * (max - min + 1) + min);
-  }
 }
 
 
-function structure() {
+function setup() {
+
+    current = 0;
+
+    randomNum(true, 12, 1);
 
 
-  currentNumber = 0;
+    randomNum(false, 120, 19);
 
-
-  randomize(true, 12, 1);
-
-
-  randomize(false, 120, 19);
-
-  Update();
+    valueUpdate();
 }
 
 
-function Update() {
+function update() {
 
-  $('#random').text(randomNum);
-  $('#user').text(currentNumber);
-  $('#wins').text(wins);
-  $('#losses').text(losses);
+    $('#random').text(randomize);
+    $('#user').text(currentNum);
+    $('#wins').text(wins);
+    $('#losses').text(losses);
 }
 
 
-function onClick() {
+function mouseClick() {
 
 
+    $('.gems img').on('click', function () {
 
-  $('.gems img').on('click', function () {
-
-    let value = $(this).attr('id');
-
-
-    currentNumber += gemstone[value];
-
-    Update();
+        let num = $(this).attr('id');
 
 
-    if (currentNumber > randomNum) {
+        currentNum += gem[num];
 
-      $('.gems img').off('click');
-      losses++;
-      alert("YOU LOSE!");
-      play();
-    } else if (currentNumber === randomNum) {
+        update();
 
-      $('.gems img').off('click');
-      wins++;
-      alert("YOU WIN!");
-      play();
-    }
 
-  });
+        if (currentNum > randomize) {
+
+            $('.gems img').off('click');
+            losses++;
+            alert("YOU LOSE!");
+            play();
+        } else if (currentNum === randomize) {
+
+            $('.gems img').off('click');
+            wins++;
+            alert("YOU WIN!");
+            play();
+        }
+
+    });
 
 }
 
 
 function play() {
 
+    setup();
 
 
-  structure();
-
-  onClick();
+    mouseClick();
 }
+
 
 play();
