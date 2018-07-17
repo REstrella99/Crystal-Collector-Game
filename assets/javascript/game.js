@@ -1,6 +1,6 @@
 
 
-var randomNumber,
+var randomNum,
   currentNumber,
   wins = 0,
   losses = 0,
@@ -13,17 +13,17 @@ function randomize(gemspawn, max, min) {
   if (gemspawn === true) {
 
     while (gemstone.length < 4) {
-      let chancenumber = Math.floor(Math.random() * (max - min + 1) + min);
+      let randomnumber = Math.floor(Math.random() * (max - min + 1) + min);
 
 
-      if (gemstone.indexOf(chancenumber) > -1) continue;
+      if (gemstone.indexOf(randomnumber) > -1) continue;
 
 
-      gemstone[gemstone.length] = chancenumber;
+      gemstone[gemstone.length] = randomnumber;
     }
   } else {
 
-    randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
+    randomNum = Math.floor(Math.random() * (max - min + 1) + min);
   }
 }
 
@@ -45,7 +45,7 @@ function structure() {
 
 function Update() {
 
-  $('#random').text(randomNumber);
+  $('#random').text(randomNum);
   $('#user').text(currentNumber);
   $('#wins').text(wins);
   $('#losses').text(losses);
@@ -66,13 +66,13 @@ function onClick() {
     Update();
 
 
-    if (currentNumber > randomNumber) {
+    if (currentNumber > randomNum) {
 
       $('.gems img').off('click');
       losses++;
       alert("YOU LOSE!");
       play();
-    } else if (currentNumber === randomNumber) {
+    } else if (currentNumber === randomNum) {
 
       $('.gems img').off('click');
       wins++;
