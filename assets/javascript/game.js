@@ -1,83 +1,83 @@
 
 
-var random_num,
-    current,
-    wins = 0,
-    losses = 0,
-    gem = [];
+var randomNumber,
+  currentNumber,
+  wins = 0,
+  losses = 0,
+  gemstone = [];
 
 
-function randomNum(gemgen, max, min){
+function randomize(gemspawn, max, min) {
 
- 
-  if (gemgen === true){
-    
-    while(gem.length < 4){
-      let randomnumber = Math.floor(Math.random() * (max - min + 1) + min);
 
-     
-      if(gem.indexOf(randomnumber) > -1) continue;
-      
-  
-      gem[gem.length] = randomnumber;
+  if (gemspawn === true) {
+
+    while (gemstone.length < 4) {
+      let chancenumber = Math.floor(Math.random() * (max - min + 1) + min);
+
+
+      if (gemstone.indexOf(chancenumber) > -1) continue;
+
+
+      gemstone[gemstone.length] = chancenumber;
     }
   } else {
-   
-    random_num = Math.floor(Math.random() * (max - min + 1) + min);
+
+    randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
   }
 }
 
 
-function setup() {
- 
-  
+function structure() {
+
+
   current = 0;
-  
 
-  randomNum(true,12,1);
-  
 
-  randomNum(false,120,19);
+  randomize(true, 12, 1);
 
-  valueUpdate();
+
+  randomize(false, 120, 19);
+
+  Update();
 }
 
 
-function valueUpdate() {
-  
-  $('#random').text(random_num);
+function Update() {
+
+  $('#random').text(randomNumber);
   $('#user').text(current);
   $('#wins').text(wins);
   $('#losses').text(losses);
 }
 
 
-function clicks() {
+function onClick() {
 
 
- 
-  $('.gems img').on('click', function() {
 
-    let num = $(this).attr('id');
+  $('.gems img').on('click', function () {
 
-   
-    current += gem[num];
-   
-    valueUpdate();
+    let value = $(this).attr('id');
 
-    
-    if (current > random_num) {
-     
+
+    current += gemstone[value];
+
+    Update();
+
+
+    if (current > randomNumber) {
+
       $('.gems img').off('click');
       losses++;
-      alert("you lose!");
-      game();
-    } else if (current === random_num) {
-      
+      alert("YOU LOSE!");
+      play();
+    } else if (current === randomNumber) {
+
       $('.gems img').off('click');
       wins++;
-      alert("you win!");
-      game();
+      alert("YOU WIN!");
+      play();
     }
 
   });
@@ -85,13 +85,13 @@ function clicks() {
 }
 
 
-function game() {
-  
-  
- 
-  setup();
+function play() {
 
-  clicks();
+
+
+  structure();
+
+  onClick();
 }
 
-game();
+play();
