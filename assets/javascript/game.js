@@ -7,21 +7,25 @@ var randomize,
 
 function randomNum(gemgen, max, min) {
 
-    if (gemgen === true) {
+ if (gemgen === true) {
 
-        while (gem.length < 4) {
+    while (gem.length < 4) {
+    
+    let randomnumber = Math.floor(Math.random() * (max - min + 1) + min);
 
-            let randomnumber = Math.floor(Math.random() * (max - min + 1) + min);
+    if (gem.indexOf(randomnumber) > -1) continue;
 
-            if (gem.indexOf(randomnumber) > -1) continue;
-
-
-            gem[gem.length] = randomnumber;
-        }
-    } else {
-
-        randomize = Math.floor(Math.random() * (max - min + 1) + min);
+    gem[gem.length] = randomnumber;
+        
     }
+    
+ } 
+  
+  else {
+
+    randomize = Math.floor(Math.random() * (max - min + 1) + min);
+    
+  }
 }
 
 
@@ -30,7 +34,6 @@ function setup() {
     currentNum = 0;
 
     randomNum(true, 12, 1);
-
 
     randomNum(false, 120, 19);
 
@@ -52,27 +55,29 @@ function mouseClick() {
 
     $('.gems img').on('click', function () {
 
-        let num = $(this).attr('id');
+    let num = $(this).attr('id');
 
+    currentNum += gem[num];
 
-        currentNum += gem[num];
+    update();
 
-        update();
+    if (currentNum > randomize) {
 
+    $('.gems img').off('click');
+    losses++;
+    alert("YOU LOSE!");
+    play();
+        
+ } 
+   else if (currentNum === randomize) {
 
-        if (currentNum > randomize) {
-
-            $('.gems img').off('click');
-            losses++;
-            alert("YOU LOSE!");
-            play();
-        } else if (currentNum === randomize) {
-
-            $('.gems img').off('click');
-            wins++;
-            alert("YOU WIN!");
-            play();
-        }
+     $('.gems img').off('click');
+     wins++;
+     alert("YOU WIN!");
+     play();
+        
+   
+   }
 
     });
 
@@ -88,4 +93,4 @@ function play() {
 }
 
 
-play();
+     play();
