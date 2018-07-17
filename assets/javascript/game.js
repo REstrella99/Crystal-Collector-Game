@@ -27,14 +27,14 @@ function randomNum(gemgen, max, min) {
 
 function setup() {
 
-    current = 0;
+    currentNum = 0;
 
     randomNum(true, 12, 1);
 
 
     randomNum(false, 120, 19);
 
-    valueUpdate();
+    update();
 }
 
 
