@@ -15,7 +15,8 @@ dl {
   background-color: #6762e8;
   margin-bottom: 10px;
 }
-
+#losses{
+  margin: 0 auto;}
 dt {
   text-align: left;
   color:white;
