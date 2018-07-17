@@ -31,7 +31,7 @@ function randomize(gemspawn, max, min) {
 function structure() {
 
 
-  current = 0;
+  currentNumber = 0;
 
 
   randomize(true, 12, 1);
@@ -46,7 +46,7 @@ function structure() {
 function Update() {
 
   $('#random').text(randomNumber);
-  $('#user').text(current);
+  $('#user').text(currentNumber);
   $('#wins').text(wins);
   $('#losses').text(losses);
 }
@@ -61,18 +61,18 @@ function onClick() {
     let value = $(this).attr('id');
 
 
-    current += gemstone[value];
+    currentNumber += gemstone[value];
 
     Update();
 
 
-    if (current > randomNumber) {
+    if (currentNumber > randomNumber) {
 
       $('.gems img').off('click');
       losses++;
       alert("YOU LOSE!");
       play();
-    } else if (current === randomNumber) {
+    } else if (currentNumber === randomNumber) {
 
       $('.gems img').off('click');
       wins++;
