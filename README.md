@@ -27,4 +27,4 @@ The random number shown at the start of the game should be between 19 - 120.
 
 Each crystal should have a random hidden value between 1 - 12.
 
-![Crystal collector](https://raw.githubusercontent.com/REstrella99/Crystal-Collector/crystalcollector.jpg)
+![Crystal collector](https://raw.githubusercontent.com/REstrella99/Crystal-Collector/crystalcollector.png)
