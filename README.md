@@ -2,6 +2,7 @@
 
 https://restrella99.github.io/Crystal-Collector-Game/
 
+![Crystalcollector.png](https://raw.githubusercontent.com/REstrella99/Crystal-Collector-Game/master/crystalcollector.png)
 
 Crystal Collector - Game using HTML Javascript and jQuery.
 
@@ -26,5 +27,3 @@ Game design notes:
 The random number shown at the start of the game should be between 19 - 120.
 
 Each crystal should have a random hidden value between 1 - 12.
-
-![Crystalcollector.png](https://raw.githubusercontent.com/REstrella99/Crystal-Collector-Game/master/crystalcollector.png)
